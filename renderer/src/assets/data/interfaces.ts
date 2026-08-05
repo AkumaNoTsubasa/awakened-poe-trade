@@ -122,6 +122,8 @@ export interface TranslationDict {
   MAP_ITEM_QUANTITY: string
   MAP_ITEM_RARITY: string
   MAP_MONSTER_PACK_SIZE: string
+  CHART_SULPHUR: string
+  CHART_GOLD: string
   MAP_MORE_MAPS: string
   MAP_MORE_SCARABS: string
   MAP_MORE_CURRENCY: string

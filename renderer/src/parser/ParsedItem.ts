@@ -43,6 +43,8 @@ export interface ParsedItem {
     moreScarabs?: number
     moreCurrency?: number
     moreDivCards?: number
+    sulphur?: number
+    goldFound?: number
   }
   gemLevel?: number
   imbuedGem?: boolean

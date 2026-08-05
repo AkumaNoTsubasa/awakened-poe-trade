@@ -50,7 +50,8 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Tincture, 'tincture'],
   [ItemCategory.Charm, 'azmeri.charm'],
   [ItemCategory.Idol, 'idol'],
-  [ItemCategory.Graft, 'graft']
+  [ItemCategory.Graft, 'graft'],
+  [ItemCategory.Chart, 'chart']
 ])
 
 const TOTAL_MODS_TEXT = {
@@ -163,6 +164,8 @@ interface TradeRequest {
           map_iiq?: FilterRange
           map_iir?: FilterRange
           map_packsize?: FilterRange
+          chart_sulphur?: FilterRange
+          map_gold?: FilterRange
           map_blighted?: FilterBoolean
           map_uberblighted?: FilterBoolean
           area_level?: FilterRange
@@ -497,6 +500,14 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[]) {
       case 'item.map_pack_size':
         propSet(query.filters, 'map_filters.filters.map_packsize.min', typeof input.min === 'number' ? input.min : undefined)
         propSet(query.filters, 'map_filters.filters.map_packsize.max', typeof input.max === 'number' ? input.max : undefined)
+        break
+      case 'item.chart_sulphur':
+        propSet(query.filters, 'map_filters.filters.chart_sulphur.min', typeof input.min === 'number' ? input.min : undefined)
+        propSet(query.filters, 'map_filters.filters.chart_sulphur.max', typeof input.max === 'number' ? input.max : undefined)
+        break
+      case 'item.map_gold':
+        propSet(query.filters, 'map_filters.filters.map_gold.min', typeof input.min === 'number' ? input.min : undefined)
+        propSet(query.filters, 'map_filters.filters.map_gold.max', typeof input.max === 'number' ? input.max : undefined)
         break
       case 'item.heist_job_agility':
         propSet(query.filters, 'heist_filters.filters.heist_agility.min', typeof input.min === 'number' ? input.min : 1)

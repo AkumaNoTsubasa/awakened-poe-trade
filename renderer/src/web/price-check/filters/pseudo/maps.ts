@@ -19,11 +19,9 @@ const VALDO_LETHAL_STATS = [
 
 export function mapProps (ctx: FiltersCreationContext): void {
   const { item } = ctx
-  if (!item.map || item.mapBlighted || item.mapCompletionReward || item.rarity === ItemRarity.Unique) return
+  if (!item.map || item.mapCompletionReward || item.rarity === ItemRarity.Unique) return
 
   const hasMoreDrops = Boolean(item.map.moreMaps || item.map.moreScarabs || item.map.moreCurrency || item.map.moreDivCards)
-
-  if (!item.isCorrupted && !hasMoreDrops && item.info.refName !== 'Nightmare Map') return
 
   if (item.map.itemQuantity) {
     ctx.filters.push(propToFilter({
@@ -48,6 +46,24 @@ export function mapProps (ctx: FiltersCreationContext): void {
       ref: 'Monster Pack Size: +#%',
       tradeId: 'item.map_pack_size',
       roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: item.map.packSize },
+      sources: [],
+      disabled: false
+    }, ctx))
+  }
+  if (item.map.sulphur) {
+    ctx.filters.push(propToFilter({
+      ref: "Dead Man's Sulphur: +#%",
+      tradeId: 'item.chart_sulphur',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: item.map.sulphur },
+      sources: [],
+      disabled: false
+    }, ctx))
+  }
+  if (item.map.goldFound) {
+    ctx.filters.push(propToFilter({
+      ref: 'Gold Found: +#%',
+      tradeId: 'item.map_gold',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: item.map.goldFound },
       sources: [],
       disabled: false
     }, ctx))
@@ -83,7 +99,7 @@ export function mapProps (ctx: FiltersCreationContext): void {
   }
 
   const explicitMods = item.newMods.filter(mod => mod.info.generation === 'prefix' || mod.info.generation === 'suffix')
-  if (explicitMods.length === 8 && !hasMoreDrops) {
+  if (explicitMods.length === 8) {
     ctx.filters.push(noSourcePseudoToFilter({
       pseudo: pseudoStatByRef(PSEUDO.EXPLICIT_MODIFIERS)!,
       roll: { min: 0, max: 8, value: explicitMods.length },

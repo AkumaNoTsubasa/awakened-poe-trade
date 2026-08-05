@@ -25,7 +25,6 @@ export function createExactStatFilters (
   opts: { searchStatRange: number }
 ): StatFilter[] {
   if (
-    item.mapBlighted ||
     item.category === ItemCategory.Invitation
   ) return []
   if (
@@ -40,7 +39,9 @@ export function createExactStatFilters (
     !item.influences.length &&
     !item.isFractured &&
     item.category !== ItemCategory.Tincture &&
-    item.category !== ItemCategory.Idol
+    item.category !== ItemCategory.Idol &&
+    item.category !== ItemCategory.Chart &&
+    !item.mapBlighted
   ) {
     keepByType.push(ModifierType.Implicit)
   }
@@ -48,6 +49,7 @@ export function createExactStatFilters (
   if (item.rarity === ItemRarity.Magic && (
     item.category !== ItemCategory.ClusterJewel &&
     item.category !== ItemCategory.Map &&
+    item.category !== ItemCategory.Chart &&
     item.category !== ItemCategory.HeistContract &&
     item.category !== ItemCategory.HeistBlueprint &&
     item.category !== ItemCategory.Sentinel
@@ -87,9 +89,11 @@ export function createExactStatFilters (
     applyMirroredTabletRules(ctx.filters)
     return ctx.filters
   }
-  if (item.category === ItemCategory.Map) {
+  if (item.category === ItemCategory.Map || item.category === ItemCategory.Chart) {
     for (const filter of ctx.filters) {
-      if (filter.tag !== FilterTag.Property && filter.tag !== FilterTag.Pseudo) {
+      if (filter.tag === FilterTag.Enchant) {
+        filter.disabled = true
+      } else if (filter.tag !== FilterTag.Property && filter.tag !== FilterTag.Pseudo) {
         filter.disabled = false
       }
     }

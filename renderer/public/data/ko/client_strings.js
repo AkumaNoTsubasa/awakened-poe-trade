@@ -13,6 +13,8 @@ export default {
   MAP_ITEM_QUANTITY: '아이템 수량: ',
   MAP_ITEM_RARITY: '아이템 희귀도: ',
   MAP_MONSTER_PACK_SIZE: '몬스터 무리 규모: ',
+  CHART_SULPHUR: "Dead Man's Sulphur: ",
+  CHART_GOLD: 'Gold Found: ',
   MAP_MORE_MAPS: '지도 더 많음: ',
   MAP_MORE_SCARABS: '갑충석 더 많음: ',
   MAP_MORE_CURRENCY: '화폐 더 많음: ',

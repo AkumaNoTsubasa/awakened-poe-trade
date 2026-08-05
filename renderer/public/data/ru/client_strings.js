@@ -13,6 +13,8 @@ export default {
   MAP_ITEM_QUANTITY: 'Количество предметов: ',
   MAP_ITEM_RARITY: 'Редкость предметов: ',
   MAP_MONSTER_PACK_SIZE: 'Размер групп монстров: ',
+  CHART_SULPHUR: "Dead Man's Sulphur: ",
+  CHART_GOLD: 'Gold Found: ',
   MAP_MORE_MAPS: 'Больше карт: ',
   MAP_MORE_SCARABS: 'Больше скарабеев: ',
   MAP_MORE_CURRENCY: 'Больше валюты: ',

@@ -13,6 +13,8 @@ export default {
   MAP_ITEM_QUANTITY: 'Item Quantity: ',
   MAP_ITEM_RARITY: 'Item Rarity: ',
   MAP_MONSTER_PACK_SIZE: 'Monster Pack Size: ',
+  CHART_SULPHUR: "Dead Man's Sulphur: ",
+  CHART_GOLD: 'Gold Found: ',
   MAP_MORE_MAPS: 'More Maps: ',
   MAP_MORE_SCARABS: 'More Scarabs: ',
   MAP_MORE_CURRENCY: 'More Currency: ',

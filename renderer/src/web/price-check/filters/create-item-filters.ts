@@ -137,13 +137,31 @@ export function createFilters (
         baseTypeTrade: t(opts, ITEM_BY_REF('ITEM', item.info.unique.base)![0])
       }
     } else {
-      filters.searchExact = {
-        baseType: item.info.name,
-        baseTypeTrade: t(opts, item.info)
+      if (item.mapBlighted && item.mapArea?.tradeDisc) {
+        filters.searchExact = {
+          baseType: `${item.mapBlighted} Map (${item.mapArea.name})`,
+          baseTypeTrade: item.mapArea.tradeDisc
+        }
+        filters.discriminator = {
+          trade: (item.mapBlighted === 'Blight-ravaged') ? 'uberblighted' : 'blighted'
+        }
+      } else {
+        filters.searchExact = {
+          baseType: item.info.name,
+          baseTypeTrade: t(opts, item.info)
+        }
+      }
+      if (!item.mapCompletionReward) {
+        filters.searchRelaxed = {
+          category: item.category,
+          disabled: false
+        }
       }
     }
 
-    if (item.info.refName === 'Map' || item.info.unique?.base === 'Map') {
+    if (!filters.discriminator &&
+      (item.info.refName === 'Map' || item.info.unique?.base === 'Map')
+    ) {
       filters.discriminator = { trade: 'map' }
     }
 
@@ -164,6 +182,7 @@ export function createFilters (
         disabled: false
       }
     }
+
   } else if (item.info.refName === 'Expedition Logbook') {
     filters.searchExact = {
       baseType: item.info.name,
@@ -172,6 +191,21 @@ export function createFilters (
     filters.areaLevel = {
       value: floorToBracket(item.areaLevel!, [1, 68, 73, 78, 81, 83]),
       disabled: false
+    }
+  } else if (item.category === ItemCategory.Chart) {
+    filters.searchRelaxed = {
+      category: item.category,
+      disabled: true
+    }
+    filters.searchExact = {
+      baseType: item.info.name,
+      baseTypeTrade: t(opts, item.info)
+    }
+    if (item.areaLevel) {
+      filters.areaLevel = {
+        value: item.areaLevel,
+        disabled: false
+      }
     }
   } else if (item.category === ItemCategory.HeistBlueprint) {
     filters.searchRelaxed = {

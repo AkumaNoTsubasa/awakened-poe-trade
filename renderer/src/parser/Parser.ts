@@ -238,7 +238,8 @@ function parseMapTier (item: ParserState) {
 }
 
 function parseMap (section: string[], item: ParsedItem) {
-  if (item.category !== ItemCategory.Map) return 'PARSER_SKIPPED'
+  if (item.category !== ItemCategory.Map &&
+      item.category !== ItemCategory.Chart) return 'PARSER_SKIPPED'
 
   if (!item.map) {
     item.map = { tier: undefined }
@@ -267,6 +268,21 @@ function parseMap (section: string[], item: ParsedItem) {
       isParsed = 'SECTION_PARSED'
     } else if (line.startsWith(_$.MAP_MORE_DIVINATION_CARDS)) {
       item.map.moreDivCards = parseInt(line.slice(_$.MAP_MORE_DIVINATION_CARDS.length), 10)
+      isParsed = 'SECTION_PARSED'
+    } else if (line.startsWith(_$.CHART_SULPHUR)) {
+      item.map.sulphur = parseInt(line.slice(_$.CHART_SULPHUR.length), 10)
+      isParsed = 'SECTION_PARSED'
+    } else if (line.startsWith(_$.CHART_GOLD)) {
+      item.map.goldFound = parseInt(line.slice(_$.CHART_GOLD.length), 10)
+      isParsed = 'SECTION_PARSED'
+    } else if (line.startsWith(_$.SCRYING_MAP_AREA)) {
+      const areaInfo = ITEM_BY_TRANSLATED('AREA', line.slice(_$.SCRYING_MAP_AREA.length))
+      if (areaInfo) {
+        item.mapArea = areaInfo[0]
+      }
+      isParsed = 'SECTION_PARSED'
+    } else if (item.category === ItemCategory.Chart && line.startsWith(_$.AREA_LEVEL)) {
+      item.areaLevel = Number(line.slice(_$.AREA_LEVEL.length))
       isParsed = 'SECTION_PARSED'
     } else if (_$.MAP_COMPLETION_REWARD.test(line)) {
       const rewardName = _$.MAP_COMPLETION_REWARD.exec(line)![1]
@@ -948,9 +964,21 @@ function parseHeistContract (section: string[], item: ParsedItem) {
       }
       continue
     }
+
+    parseHeistRewardModifiers(line, item)
   }
 
   return 'SECTION_PARSED'
+}
+
+function parseHeistRewardModifiers (line: string, item: ParsedItem) {
+  if (line.startsWith(_$.MAP_ITEM_QUANTITY)) {
+    item.map ??= { tier: undefined }
+    item.map.itemQuantity = parseInt(line.slice(_$.MAP_ITEM_QUANTITY.length), 10)
+  } else if (line.startsWith(_$.MAP_ITEM_RARITY)) {
+    item.map ??= { tier: undefined }
+    item.map.itemRarity = parseInt(line.slice(_$.MAP_ITEM_RARITY.length), 10)
+  }
 }
 
 function parseHeistBlueprint (section: string[], item: ParsedItem) {
@@ -978,6 +1006,8 @@ function parseHeistBlueprint (section: string[], item: ParsedItem) {
       }
     } else if (line.startsWith(_$.HEIST_WINGS_REVEALED)) {
       item.heistBlueprint.wingsRevealed = parseInt(line.slice(_$.HEIST_WINGS_REVEALED.length), 10)
+    } else {
+      parseHeistRewardModifiers(line, item)
     }
   }
 
