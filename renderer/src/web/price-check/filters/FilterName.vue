@@ -3,6 +3,9 @@
     <button class="px-2 rounded border overflow-hidden text-ellipsis"
       :class="{ 'border-gray-500': showAsActive, 'border-gray-900': !showAsActive }"
       @click="toggleAccuracy">{{ label }}</button>
+    <button v-if="filters.infamous" class="px-2" @click="filters.infamous.disabled = !filters.infamous.disabled">
+      <span :class="filters.infamous.disabled ? 'text-gray-600' : 'text-yellow-500'">Infamous</span>
+    </button>
     <button v-if="filters.corrupted" class="px-2" @click="corrupted = !corrupted">
       <span v-if="corrupted" class="text-red-500">{{ t('item.corrupted') }}</span>
       <span v-else class="text-gray-600">{{ t('item.not_corrupted') }}</span>

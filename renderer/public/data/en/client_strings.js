@@ -15,6 +15,7 @@ export default {
   MAP_MONSTER_PACK_SIZE: 'Monster Pack Size: ',
   CHART_SULPHUR: "Dead Man's Sulphur: ",
   CHART_GOLD: 'Gold Found: ',
+  MERCENARY_BUILD: 'Build: ',
   MAP_MORE_MAPS: 'More Maps: ',
   MAP_MORE_SCARABS: 'More Scarabs: ',
   MAP_MORE_CURRENCY: 'More Currency: ',

@@ -90,7 +90,7 @@ interface TradeRequest {
     name?: string | { discriminator: string, option: string }
     type?: string | { discriminator: string, option: string }
     stats: Array<{
-      type: 'and' | 'if' | 'count' | 'not'
+      type: 'and' | 'if' | 'count' | 'not' | 'mercenary'
       value?: FilterRange
       filters: Array<{
         id: string
@@ -301,7 +301,12 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[]) {
   }
 
   if (activeSearch.baseTypeTrade) {
-    query.type = nameToQuery(activeSearch.baseTypeTrade, filters)
+    const baseTypeTrade = (filters.infamous && !filters.infamous.disabled && activeSearch === filters.searchExact)
+      ? filters.infamous.baseTypeTrade
+      : activeSearch.baseTypeTrade
+    query.type = (activeSearch === filters.searchRelaxed)
+      ? baseTypeTrade
+      : nameToQuery(baseTypeTrade, filters)
   } else if (activeSearch.baseType) {
     query.type = nameToQuery(activeSearch.baseType, filters)
   }
@@ -584,8 +589,20 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[]) {
     type: 'not',
     filters: []
   }
+  const qMercGroups = new Map<number, TradeRequest['query']['stats'][number]>()
 
   for (const stat of realStats) {
+    if (stat.mercGroup !== undefined) {
+      if (stat.disabled) continue
+      let qMerc = qMercGroups.get(stat.mercGroup)
+      if (!qMerc) {
+        qMerc = { type: 'mercenary', filters: [] }
+        qMercGroups.set(stat.mercGroup, qMerc)
+        query.stats.push(qMerc)
+      }
+      qMerc.filters.push(tradeIdToQuery(stat.tradeId[0], stat))
+      continue
+    }
     if (stat.not) {
       for (const id of stat.tradeId) {
         qNot.filters.push(tradeIdToQuery(id, stat))

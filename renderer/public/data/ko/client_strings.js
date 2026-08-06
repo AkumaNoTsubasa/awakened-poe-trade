@@ -15,6 +15,7 @@ export default {
   MAP_MONSTER_PACK_SIZE: '몬스터 무리 규모: ',
   CHART_SULPHUR: "Dead Man's Sulphur: ",
   CHART_GOLD: 'Gold Found: ',
+  MERCENARY_BUILD: 'Build: ',
   MAP_MORE_MAPS: '지도 더 많음: ',
   MAP_MORE_SCARABS: '갑충석 더 많음: ',
   MAP_MORE_CURRENCY: '화폐 더 많음: ',

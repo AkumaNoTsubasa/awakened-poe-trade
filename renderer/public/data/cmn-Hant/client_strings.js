@@ -15,6 +15,7 @@ export default {
   MAP_MONSTER_PACK_SIZE: '怪物群大小: ',
   CHART_SULPHUR: "Dead Man's Sulphur: ",
   CHART_GOLD: 'Gold Found: ',
+  MERCENARY_BUILD: 'Build: ',
   MAP_MORE_MAPS: '更多地圖: ',
   MAP_MORE_SCARABS: '更多聖甲蟲: ',
   MAP_MORE_CURRENCY: '更多通貨: ',

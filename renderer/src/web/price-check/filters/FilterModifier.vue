@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style['filter']">
+  <div :class="[$style['filter'], $style['row-' + filter.tag]]">
     <div v-if="showSourceInfo" :class="$style['mods']">
       <div class="pl-5 py-1" v-for="(source, idx) of filter.sources" :key="idx">
         <source-info :source="source" :filter="filter" />
@@ -234,6 +234,22 @@ export default defineComponent({
   position: relative;
 }
 
+.row-mercenary-skill {
+  border-bottom: none;
+
+  &:not(:first-child) {
+    @apply border-t;
+  }
+}
+.row-mercenary-link {
+  @apply py-0.5;
+  border-bottom: none;
+}
+.row-mercenary-skill:last-of-type,
+.row-mercenary-link:last-of-type {
+  @apply border-b;
+}
+
 .rollInput {
   @apply bg-gray-900;
   @apply text-gray-300;
@@ -305,7 +321,8 @@ export default defineComponent({
 .tag-explicit-veiled,
 .tag-explicit-incursion,
 .tag-explicit-infamous,
-.tag-explicit-essence {
+.tag-explicit-essence,
+.tag-mercenary-skill {
   display: flex;
   align-items: center;
   @apply -mx-1 pl-0.5 gap-x-0.5 text-gray-600;
@@ -342,6 +359,10 @@ export default defineComponent({
   background-image: url('/images/mercenary.png'); }
 .tag-explicit-essence::before {
   background-image: url('/images/essence.png'); }
+.tag-mercenary-skill::before {
+  background-image: url('/images/mercenary.png'); }
+.tag-mercenary-link {
+  @apply bg-gray-700 text-black; }
 
 .tag-corrupted {
   @apply bg-red-700 text-red-100; }

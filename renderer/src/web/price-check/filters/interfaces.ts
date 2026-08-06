@@ -26,6 +26,10 @@ export interface ItemFilters {
   chartArea?: {
     option: string
   }
+  infamous?: {
+    disabled: boolean
+    baseTypeTrade: string
+  }
   rarity?: {
     value: string
     disabled: boolean
@@ -127,6 +131,7 @@ export interface StatFilter {
     value: number // NOTE: mutable in UI
   }
   hidden?: string
+  mercGroup?: number
   disabled: boolean // NOTE: mutable in UI
 }
 
@@ -196,5 +201,7 @@ export enum FilterTag {
   Unveiled = 'explicit-veiled',
   Incursion = 'explicit-incursion',
   Infamous = 'explicit-infamous',
-  Essence = 'explicit-essence'
+  Essence = 'explicit-essence',
+  MercenarySkill = 'mercenary-skill',
+  MercenaryLink = 'mercenary-link'
 }

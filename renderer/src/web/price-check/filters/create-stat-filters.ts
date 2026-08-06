@@ -27,6 +27,18 @@ export function createExactStatFilters (
   if (
     item.category === ItemCategory.Invitation
   ) return []
+  if (item.category === ItemCategory.Mercenary) {
+    return (item.mercenarySkills ?? []).flatMap((group, mercGroup) =>
+      group.map((entry, idx) => ({
+        tradeId: [entry.tradeId],
+        statRef: entry.text,
+        text: entry.text,
+        tag: (idx === 0) ? FilterTag.MercenarySkill : FilterTag.MercenaryLink,
+        sources: [],
+        mercGroup,
+        disabled: true
+      })))
+  }
   if (
     item.isUnidentified &&
     item.rarity === ItemRarity.Unique &&

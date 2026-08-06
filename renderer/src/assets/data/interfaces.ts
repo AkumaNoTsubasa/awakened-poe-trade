@@ -64,7 +64,8 @@ export interface BaseType {
     'UNIQUE' |
     'ITEM' |
     'GEM' |
-    'AREA'
+    'AREA' |
+    'MERCENARY_BUILD'
   )
   icon: string
   w?: number
@@ -124,6 +125,7 @@ export interface TranslationDict {
   MAP_MONSTER_PACK_SIZE: string
   CHART_SULPHUR: string
   CHART_GOLD: string
+  MERCENARY_BUILD: string
   MAP_MORE_MAPS: string
   MAP_MORE_SCARABS: string
   MAP_MORE_CURRENCY: string

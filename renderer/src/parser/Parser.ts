@@ -58,6 +58,16 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseSockets,
   parseHeistContract,
   parseHeistBlueprint,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
+  parseMercenary,
   parseAreaLevel,
   parseAtzoatlRooms,
   parseMirroredTablet,
@@ -985,6 +995,33 @@ function parseHeistRewardModifiers (line: string, item: ParsedItem) {
     item.map ??= { tier: undefined }
     item.map.itemRarity = parseInt(line.slice(_$.MAP_ITEM_RARITY.length), 10)
   }
+}
+
+function parseMercenary (section: string[], item: ParsedItem): SectionParseResult {
+  if (item.category !== ItemCategory.Mercenary) return 'PARSER_SKIPPED'
+
+  if (section[0].startsWith(_$.MERCENARY_BUILD)) {
+    const buildInfo = ITEM_BY_TRANSLATED('MERCENARY_BUILD', section[0].slice(_$.MERCENARY_BUILD.length))
+    if (!buildInfo?.length) return 'SECTION_SKIPPED'
+    item.mercenaryBuild = buildInfo[0]
+    return 'SECTION_PARSED'
+  }
+
+  const skill = STAT_BY_MATCH_STR(section[0])
+  const skillId = skill?.stat.trade.ids.mercenary?.[0]
+  if (!skillId?.startsWith('mercenary.skill_')) return 'SECTION_SKIPPED'
+
+  const group = [{ text: section[0], tradeId: skillId }]
+  for (const line of section.slice(1)) {
+    const support = STAT_BY_MATCH_STR(line)
+    const supportId = support?.stat.trade.ids.mercenary?.[0]
+    if (supportId?.startsWith('mercenary.support_')) {
+      group.push({ text: line, tradeId: supportId })
+    }
+  }
+  item.mercenarySkills ??= []
+  item.mercenarySkills.push(group)
+  return 'SECTION_PARSED'
 }
 
 function parseHeistBlueprint (section: string[], item: ParsedItem) {

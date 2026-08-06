@@ -15,6 +15,7 @@ export default {
   MAP_MONSTER_PACK_SIZE: 'Размер групп монстров: ',
   CHART_SULPHUR: "Dead Man's Sulphur: ",
   CHART_GOLD: 'Gold Found: ',
+  MERCENARY_BUILD: 'Build: ',
   MAP_MORE_MAPS: 'Больше карт: ',
   MAP_MORE_SCARABS: 'Больше скарабеев: ',
   MAP_MORE_CURRENCY: 'Больше валюты: ',

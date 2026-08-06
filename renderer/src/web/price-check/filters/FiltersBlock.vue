@@ -92,14 +92,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch, shallowRef, shallowReactive, computed, PropType } from 'vue'
+import { defineComponent, watch, watchEffect, shallowRef, shallowReactive, computed, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import UiToggle from '@/web/ui/UiToggle.vue'
 import FilterModifier from './FilterModifier.vue'
 import FilterBtnNumeric from './FilterBtnNumeric.vue'
 import FilterBtnLogical from './FilterBtnLogical.vue'
 import UnknownModifier from './UnknownModifier.vue'
-import { ItemFilters, StatFilter } from './interfaces'
+import { FilterTag, ItemFilters, StatFilter } from './interfaces'
 import { ParsedItem, ItemRarity, ItemCategory } from '@/parser'
 
 export default defineComponent({
@@ -140,6 +140,17 @@ export default defineComponent({
       statsVisibility.disabled = false
     })
 
+    watchEffect(() => {
+      const disabledGroups = new Set(props.stats
+        .filter(s => s.tag === FilterTag.MercenarySkill && s.disabled)
+        .map(s => s.mercGroup))
+      for (const s of props.stats) {
+        if (s.tag === FilterTag.MercenaryLink && disabledGroups.has(s.mercGroup)) {
+          s.disabled = true
+        }
+      }
+    })
+
     const showUnknownMods = computed(() =>
       props.item.unknownModifiers.length &&
       props.item.category !== ItemCategory.Sentinel &&
@@ -157,11 +168,15 @@ export default defineComponent({
         return props.stats.filter(stat => !stat.disabled).length
       }),
       filteredStats: computed(() => {
-        if (showHidden.value) {
-          return props.stats.filter(s => s.hidden)
-        } else {
-          return props.stats.filter(s => !s.hidden)
-        }
+        const stats = showHidden.value
+          ? props.stats.filter(s => s.hidden)
+          : props.stats.filter(s => !s.hidden)
+        return stats.filter(s =>
+          s.tag !== FilterTag.MercenaryLink ||
+          stats.some(skill =>
+            skill.tag === FilterTag.MercenarySkill &&
+            skill.mercGroup === s.mercGroup &&
+            !skill.disabled))
       }),
       showUnknownMods,
       hasStats: computed(() =>

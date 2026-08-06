@@ -201,7 +201,9 @@
     "tag_explicit_veiled": "Veiled",
     "tag_explicit_incursion": "Incursion",
     "tag_explicit_infamous": "Mercenary",
-    "tag_explicit_essence": "Essence"
+    "tag_explicit_essence": "Essence",
+    "tag_mercenary_skill": "Skill",
+    "tag_mercenary_link": "Link"
   },
   "online_filter": {
     "offline_toggle": "Offline & Online",

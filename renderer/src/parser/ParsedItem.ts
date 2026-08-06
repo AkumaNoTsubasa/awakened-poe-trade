@@ -46,6 +46,8 @@ export interface ParsedItem {
     sulphur?: number
     goldFound?: number
   }
+  mercenaryBuild?: BaseType
+  mercenarySkills?: Array<Array<{ text: string, tradeId: string }>>
   gemLevel?: number
   imbuedGem?: boolean
   areaLevel?: number

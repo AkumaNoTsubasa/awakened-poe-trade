@@ -212,6 +212,35 @@ export function createFilters (
         disabled: false
       }
     }
+  } else if (item.category === ItemCategory.Mercenary) {
+    if (item.mercenaryBuild?.tradeDisc) {
+      const buildName = item.mercenaryBuild.name.replace(/^Infamous /, '')
+      const baseBuild = ITEM_BY_REF('MERCENARY_BUILD', buildName)?.[0] ?? item.mercenaryBuild
+      const infamousBuild = ITEM_BY_REF('MERCENARY_BUILD', `Infamous ${buildName}`)?.[0]
+      filters.searchExact = {
+        baseType: `Mercenary (${baseBuild.name})`,
+        baseTypeTrade: baseBuild.tradeDisc!
+      }
+      if (infamousBuild && infamousBuild.tradeDisc !== baseBuild.tradeDisc) {
+        filters.infamous = {
+          disabled: true,
+          baseTypeTrade: infamousBuild.tradeDisc!
+        }
+      }
+      filters.discriminator = {
+        trade: item.info.tradeDisc!
+      }
+      filters.searchRelaxed = {
+        baseType: 'Mercenary',
+        baseTypeTrade: t(opts, item.info),
+        disabled: true
+      }
+    } else {
+      filters.searchExact = {
+        baseType: item.info.name,
+        baseTypeTrade: t(opts, item.info)
+      }
+    }
   } else if (item.category === ItemCategory.HeistBlueprint) {
     filters.searchRelaxed = {
       category: item.category,
@@ -297,7 +326,7 @@ export function createFilters (
     // item.isCorrupted && -- let the buyer corrupt
     (item.category === ItemCategory.Jewel || item.category === ItemCategory.AbyssJewel))
 
-  if (!item.isUnmodifiable && (
+  if (!item.isUnmodifiable && item.category !== ItemCategory.Mercenary && (
     item.rarity === ItemRarity.Normal ||
     item.rarity === ItemRarity.Magic ||
     item.rarity === ItemRarity.Rare ||
@@ -325,9 +354,11 @@ export function createFilters (
       disabled: true
     }
   } else if (
-    item.rarity === ItemRarity.Normal ||
-    item.rarity === ItemRarity.Magic ||
-    item.rarity === ItemRarity.Rare
+    item.category !== ItemCategory.Mercenary && (
+      item.rarity === ItemRarity.Normal ||
+      item.rarity === ItemRarity.Magic ||
+      item.rarity === ItemRarity.Rare
+    )
   ) {
     filters.rarity = {
       value: 'nonunique',
@@ -338,7 +369,8 @@ export function createFilters (
   if (item.isMirrored) {
     filters.mirrored = { disabled: false, hidden: false }
   } else if (
-    item.info.craftable && !item.isCorrupted
+    item.info.craftable && !item.isCorrupted &&
+    item.category !== ItemCategory.Mercenary
   ) {
     filters.mirrored = { disabled: true, hidden: true }
   }
@@ -348,13 +380,15 @@ export function createFilters (
   } else if (
     (!PERMANENT_SC.includes(opts.league) || opts.exact) &&
     item.info.craftable && !item.isCorrupted && !item.isMirrored &&
-    !item.isSynthesised && !item.isFractured && !item.influences.length
+    !item.isSynthesised && !item.isFractured && !item.influences.length &&
+    item.category !== ItemCategory.Mercenary
   ) {
     filters.split = { disabled: true, hidden: true }
   }
 
   if (!item.isFractured &&
-    (item.info.craftable && !item.isCorrupted && !item.isMirrored)
+    (item.info.craftable && !item.isCorrupted && !item.isMirrored) &&
+    item.category !== ItemCategory.Mercenary
   ) {
     filters.fractured = { value: false }
   }

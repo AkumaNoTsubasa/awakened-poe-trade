@@ -4908,3 +4908,68 @@
 {"name": "Sunken Totems", "refName": "Sunken Totems", "namespace": "AREA", "tradeDisc": "SunkenTotems", "icon": ""}
 {"name": "Undersea Groves", "refName": "Undersea Groves", "namespace": "AREA", "tradeDisc": "UnderseaGroves", "icon": ""}
 {"name": "Unremarkable Seabed", "refName": "Unremarkable Seabed", "namespace": "AREA", "tradeDisc": "UnremarkableSeabed", "icon": ""}
+{"name":"Mercenary Warrant","refName":"Mercenary Warrant","namespace":"ITEM","tradeDisc":"mercenary_warrant","craftable":{"category":"Mercenary"},"icon":"https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTWVyY2VuYXJ5V2FycmFudCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/5cf435d2d3/MercenaryWarrant.png"}
+{"name":"Warpriest","refName":"Warpriest","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarSmite","icon":""}
+{"name":"Infamous Warpriest","refName":"Infamous Warpriest","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarSmiteNoble","icon":""}
+{"name":"Infamous Warpriest of the Ruckus","refName":"Infamous Warpriest of the Ruckus","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarSmiteRuckusNoble","icon":""}
+{"name":"Fallen Reverend","refName":"Fallen Reverend","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarSpectres","icon":""}
+{"name":"Infamous Fallen Reverend","refName":"Infamous Fallen Reverend","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarSpectresNoble","icon":""}
+{"name":"Cardinal","refName":"Cardinal","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarStaff","icon":""}
+{"name":"Infamous Cardinal","refName":"Infamous Cardinal","namespace":"MERCENARY_BUILD","tradeDisc":"AurasMinionsTemplarStaffNoble","icon":""}
+{"name":"Cruel Mistress","refName":"Cruel Mistress","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchChaosHit","icon":""}
+{"name":"Infamous Cruel Mistress","refName":"Infamous Cruel Mistress","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchChaosHitNoble","icon":""}
+{"name":"Withertouch","refName":"Withertouch","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchDot","icon":""}
+{"name":"Infamous Withertouch","refName":"Infamous Withertouch","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchDotNoble","icon":""}
+{"name":"Reanimator","refName":"Reanimator","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchInstability","icon":""}
+{"name":"Infamous Reanimator","refName":"Infamous Reanimator","namespace":"MERCENARY_BUILD","tradeDisc":"ChaosMinionWitchInstabilityNoble","icon":""}
+{"name":"Bladecaster","refName":"Bladecaster","namespace":"MERCENARY_BUILD","tradeDisc":"Crit1HShadowPhysSpell","icon":""}
+{"name":"Infamous Bladecaster","refName":"Infamous Bladecaster","namespace":"MERCENARY_BUILD","tradeDisc":"Crit1HShadowPhysSpellNoble","icon":""}
+{"name":"Bladebitter","refName":"Bladebitter","namespace":"MERCENARY_BUILD","tradeDisc":"Crit1HShadowPoison","icon":""}
+{"name":"Infamous Bladebitter","refName":"Infamous Bladebitter","namespace":"MERCENARY_BUILD","tradeDisc":"Crit1HShadowPoisonNoble","icon":""}
+{"name":"Mysterious Diver","refName":"Mysterious Diver","namespace":"MERCENARY_BUILD","tradeDisc":"DivingDuelist","icon":""}
+{"name":"Infamous Mysterious Diver","refName":"Infamous Mysterious Diver","namespace":"MERCENARY_BUILD","tradeDisc":"DivingDuelistNoble","icon":""}
+{"name":"Manyshot","refName":"Manyshot","namespace":"MERCENARY_BUILD","tradeDisc":"EleBowRangerClones","icon":""}
+{"name":"Infamous Manyshot","refName":"Infamous Manyshot","namespace":"MERCENARY_BUILD","tradeDisc":"EleBowRangerClonesNoble","icon":""}
+{"name":"Flamequiver","refName":"Flamequiver","namespace":"MERCENARY_BUILD","tradeDisc":"EleBowRangerFire","icon":""}
+{"name":"Infamous Flamequiver","refName":"Infamous Flamequiver","namespace":"MERCENARY_BUILD","tradeDisc":"EleBowRangerFireNoble","icon":""}
+{"name":"Thunderquiver","refName":"Thunderquiver","namespace":"MERCENARY_BUILD","tradeDisc":"EleBowRangerLightning","icon":""}
+{"name":"Frosthand","refName":"Frosthand","namespace":"MERCENARY_BUILD","tradeDisc":"ElementalWitchCold","icon":""}
+{"name":"Infamous Frosthand","refName":"Infamous Frosthand","namespace":"MERCENARY_BUILD","tradeDisc":"ElementalWitchColdNoble","icon":""}
+{"name":"Flamehand","refName":"Flamehand","namespace":"MERCENARY_BUILD","tradeDisc":"ElementalWitchFire","icon":""}
+{"name":"Stormhand","refName":"Stormhand","namespace":"MERCENARY_BUILD","tradeDisc":"ElementalWitchLightning","icon":""}
+{"name":"Infamous Stormhand","refName":"Infamous Stormhand","namespace":"MERCENARY_BUILD","tradeDisc":"ElementalWitchLightningNoble","icon":""}
+{"name":"Eruptor","refName":"Eruptor","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderFireSlam","icon":""}
+{"name":"Infamous Eruptor","refName":"Infamous Eruptor","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderFireSlamNoble","icon":""}
+{"name":"Ripper","refName":"Ripper","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderNonSlam","icon":""}
+{"name":"Infamous Ripper","refName":"Infamous Ripper","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderNonSlamNoble","icon":""}
+{"name":"Earthshaker","refName":"Earthshaker","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderPhysSlam","icon":""}
+{"name":"Infamous Earthshaker","refName":"Infamous Earthshaker","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEMarauderPhysSlamNoble","icon":""}
+{"name":"Swiftblade","refName":"Swiftblade","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEStrikeDuelistCyclone","icon":""}
+{"name":"Infamous Swiftblade","refName":"Infamous Swiftblade","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEStrikeDuelistCycloneNoble","icon":""}
+{"name":"Combatant","refName":"Combatant","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEStrikeDuelistRangeStrikes","icon":""}
+{"name":"Infamous Combatant","refName":"Infamous Combatant","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeAOEStrikeDuelistRangeStrikesNoble","icon":""}
+{"name":"Striker","refName":"Striker","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeStrikesMaraduerPhys","icon":""}
+{"name":"Infamous Striker","refName":"Infamous Striker","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeStrikesMaraduerPhysNoble","icon":""}
+{"name":"Smoulderstrike","refName":"Smoulderstrike","namespace":"MERCENARY_BUILD","tradeDisc":"MeleeStrikesMarauderFire","icon":""}
+{"name":"Sanguimancer","refName":"Sanguimancer","namespace":"MERCENARY_BUILD","tradeDisc":"MiscScionPhysDot","icon":""}
+{"name":"Infamous Sanguimancer","refName":"Infamous Sanguimancer","namespace":"MERCENARY_BUILD","tradeDisc":"MiscScionPhysDotNoble","icon":""}
+{"name":"Kineticist","refName":"Kineticist","namespace":"MERCENARY_BUILD","tradeDisc":"MiscScionWandAttacks","icon":""}
+{"name":"Infamous Kineticist","refName":"Infamous Kineticist","namespace":"MERCENARY_BUILD","tradeDisc":"MiscScionWandAttacksNoble","icon":""}
+{"name":"Toxicologist","refName":"Toxicologist","namespace":"MERCENARY_BUILD","tradeDisc":"NonEleBowRangerChaos","icon":""}
+{"name":"Infamous Toxicologist","refName":"Infamous Toxicologist","namespace":"MERCENARY_BUILD","tradeDisc":"NonEleBowRangerChaosNoble","icon":""}
+{"name":"Sniper","refName":"Sniper","namespace":"MERCENARY_BUILD","tradeDisc":"NonEleBowRangerPhys","icon":""}
+{"name":"Infamous Sniper","refName":"Infamous Sniper","namespace":"MERCENARY_BUILD","tradeDisc":"NonEleBowRangerPhysNoble","icon":""}
+{"name":"Winter Deacon","refName":"Winter Deacon","namespace":"MERCENARY_BUILD","tradeDisc":"PhysConvertTemplarCold","icon":""}
+{"name":"Flaming Charlatan","refName":"Flaming Charlatan","namespace":"MERCENARY_BUILD","tradeDisc":"PhysConvertTemplarFire","icon":""}
+{"name":"Storming Zealot","refName":"Storming Zealot","namespace":"MERCENARY_BUILD","tradeDisc":"PhysConvertTemplarLightning","icon":""}
+{"name":"Infamous Storming Zealot","refName":"Infamous Storming Zealot","namespace":"MERCENARY_BUILD","tradeDisc":"PhysConvertTemplarLightningNoble","icon":""}
+{"name":"Bloodletter","refName":"Bloodletter","namespace":"MERCENARY_BUILD","tradeDisc":"PhysicalDuelistBleed","icon":""}
+{"name":"Infamous Bloodletter","refName":"Infamous Bloodletter","namespace":"MERCENARY_BUILD","tradeDisc":"PhysicalDuelistBleedNoble","icon":""}
+{"name":"Bastion","refName":"Bastion","namespace":"MERCENARY_BUILD","tradeDisc":"PhysicalDuelistShields","icon":""}
+{"name":"Infamous Bastion","refName":"Infamous Bastion","namespace":"MERCENARY_BUILD","tradeDisc":"PhysicalDuelistShieldsNoble","icon":""}
+{"name":"Shattersword","refName":"Shattersword","namespace":"MERCENARY_BUILD","tradeDisc":"PhysicalDuelistSteel","icon":""}
+{"name":"Blade Ambusher","refName":"Blade Ambusher","namespace":"MERCENARY_BUILD","tradeDisc":"TrapsMinesShadowAttack","icon":""}
+{"name":"Infamous Blade Ambusher","refName":"Infamous Blade Ambusher","namespace":"MERCENARY_BUILD","tradeDisc":"TrapsMinesShadowAttackNoble","icon":""}
+{"name":"Frost Ambusher","refName":"Frost Ambusher","namespace":"MERCENARY_BUILD","tradeDisc":"TrapsMinesShadowCold","icon":""}
+{"name":"Shock Ambusher","refName":"Shock Ambusher","namespace":"MERCENARY_BUILD","tradeDisc":"TrapsMinesShadowLightning","icon":""}
+{"name":"Infamous Shock Ambusher","refName":"Infamous Shock Ambusher","namespace":"MERCENARY_BUILD","tradeDisc":"TrapsMinesShadowLightningNoble","icon":""}
