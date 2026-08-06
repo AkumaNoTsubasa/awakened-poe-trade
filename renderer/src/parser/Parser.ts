@@ -284,6 +284,12 @@ function parseMap (section: string[], item: ParsedItem) {
     } else if (item.category === ItemCategory.Chart && line.startsWith(_$.AREA_LEVEL)) {
       item.areaLevel = Number(line.slice(_$.AREA_LEVEL.length))
       isParsed = 'SECTION_PARSED'
+    } else if (item.category === ItemCategory.Chart && !item.mapArea) {
+      const areaInfo = ITEM_BY_TRANSLATED('AREA', line)
+      if (areaInfo) {
+        item.mapArea = areaInfo[0]
+        isParsed = 'SECTION_PARSED'
+      }
     } else if (_$.MAP_COMPLETION_REWARD.test(line)) {
       const rewardName = _$.MAP_COMPLETION_REWARD.exec(line)![1]
       const rewardInfo = ITEM_BY_TRANSLATED('UNIQUE', rewardName)

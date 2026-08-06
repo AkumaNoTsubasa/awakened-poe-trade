@@ -23,6 +23,9 @@ export interface ItemFilters {
     value?: string
     trade: string
   }
+  chartArea?: {
+    option: string
+  }
   rarity?: {
     value: string
     disabled: boolean
@@ -146,6 +149,7 @@ const _INTERNAL_TRADE_IDS = [
   'item.map_pack_size',
   'item.chart_sulphur',
   'item.map_gold',
+  'item.chart_area',
   'item.heist_job_lockpicking',
   'item.heist_job_bruteforce',
   'item.heist_job_perception',

@@ -548,6 +548,9 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[]) {
       case 'item.heist_target_priceless':
         propSet(query.filters, 'heist_filters.filters.heist_objective_value.option', 'priceless')
         break
+      case 'item.chart_area':
+        query.type = { option: filters.chartArea!.option, discriminator: 'chart' }
+        break
     }
   }
 

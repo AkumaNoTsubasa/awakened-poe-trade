@@ -197,7 +197,8 @@ export default defineComponent({
       fontSize: computed(() => AppConfig().fontSize),
       isDisabled: computed(() => props.filter.disabled),
       text: computed(() => {
-        if (!INTERNAL_TRADE_IDS.includes(props.filter.tradeId[0])) {
+        if (!INTERNAL_TRADE_IDS.includes(props.filter.tradeId[0]) ||
+            props.filter.tradeId[0] === 'item.chart_area') {
           return props.filter.text
         } else {
           return t(props.filter.tradeId[0], ['#', '#'])

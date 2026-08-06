@@ -201,6 +201,11 @@ export function createFilters (
       baseType: item.info.name,
       baseTypeTrade: t(opts, item.info)
     }
+    if (item.mapArea?.tradeDisc) {
+      filters.chartArea = {
+        option: item.mapArea.tradeDisc
+      }
+    }
     if (item.areaLevel) {
       filters.areaLevel = {
         value: item.areaLevel,

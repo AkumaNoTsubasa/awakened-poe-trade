@@ -1,6 +1,8 @@
 import { stat, pseudoStatByRef } from '@/assets/data'
 import { ItemRarity } from '@/parser/ParsedItem'
+import { ItemCategory } from '@/parser/meta'
 import { ModifierType } from '@/parser/modifiers'
+import { FilterTag } from '../interfaces'
 import { FiltersCreationContext } from '../create-stat-filters'
 import { noSourcePseudoToFilter, propToFilter } from './item-property'
 import { findAndResolveByRef, statToNotFilter } from './utils'
@@ -22,6 +24,17 @@ export function mapProps (ctx: FiltersCreationContext): void {
   if (!item.map || item.mapCompletionReward || item.rarity === ItemRarity.Unique) return
 
   const hasMoreDrops = Boolean(item.map.moreMaps || item.map.moreScarabs || item.map.moreCurrency || item.map.moreDivCards)
+
+  if (item.category === ItemCategory.Chart && item.mapArea?.tradeDisc) {
+    ctx.filters.push({
+      tradeId: ['item.chart_area'],
+      statRef: 'Area: #',
+      text: `Area: ${item.mapArea.name}`,
+      tag: FilterTag.Property,
+      sources: [],
+      disabled: false
+    })
+  }
 
   if (item.map.itemQuantity) {
     ctx.filters.push(propToFilter({

@@ -4897,3 +4897,19 @@
 {"name": "Coral Forest Chart", "refName": "Coral Forest Chart", "namespace": "ITEM", "craftable": {"category": "Chart"}, "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0RlZXB3YXRlclRvcm5NYXAyIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsImRjZCI6MTV9XQ/5261f51fec/DeepwaterTornMap2.png"}
 {"name": "Coral Reef Chart", "refName": "Coral Reef Chart", "namespace": "ITEM", "craftable": {"category": "Chart"}, "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0RlZXB3YXRlclRvcm5NYXAzIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsImRjZCI6NX1d/d265a31f8a/DeepwaterTornMap3.png"}
 {"name": "Sandy Seabed Chart", "refName": "Sandy Seabed Chart", "namespace": "ITEM", "craftable": {"category": "Chart"}, "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0RlZXB3YXRlclRvcm5NYXAxIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsImRjZCI6MTJ9XQ/9f5f9fd79f/DeepwaterTornMap1.png"}
+{"name": "Abyssal Plain", "refName": "Abyssal Plain", "namespace": "AREA", "tradeDisc": "AbyssalPlain", "icon": ""}
+{"name": "Anchorfield", "refName": "Anchorfield", "namespace": "AREA", "tradeDisc": "Anchorfield", "icon": ""}
+{"name": "Brine King's Domain", "refName": "Brine King's Domain", "namespace": "AREA", "tradeDisc": "BrineKingsDomain", "icon": ""}
+{"name": "Clam-infested Shelf", "refName": "Clam-infested Shelf", "namespace": "AREA", "tradeDisc": "ClamInfestedShelf", "icon": ""}
+{"name": "Diving Shoals", "refName": "Diving Shoals", "namespace": "AREA", "tradeDisc": "DivingShoals", "icon": ""}
+{"name": "Eldritch Depths", "refName": "Eldritch Depths", "namespace": "AREA", "tradeDisc": "EldritchDepths", "icon": ""}
+{"name": "Hazardous Depths", "refName": "Hazardous Depths", "namespace": "AREA", "tradeDisc": "HazardousDepths", "icon": ""}
+{"name": "Infested Bathyspheres", "refName": "Infested Bathyspheres", "namespace": "AREA", "tradeDisc": "InfestedBathyspheres", "icon": ""}
+{"name": "Kishara's Rest", "refName": "Kishara's Rest", "namespace": "AREA", "tradeDisc": "KisharasRest", "icon": ""}
+{"name": "Lost Ruins", "refName": "Lost Ruins", "namespace": "AREA", "tradeDisc": "LostRuins", "icon": ""}
+{"name": "Pelagic Abyss", "refName": "Pelagic Abyss", "namespace": "AREA", "tradeDisc": "PelagicAbyss", "icon": ""}
+{"name": "Seafloor Ridges", "refName": "Seafloor Ridges", "namespace": "AREA", "tradeDisc": "SeafloorRidges", "icon": ""}
+{"name": "Sea Pillars", "refName": "Sea Pillars", "namespace": "AREA", "tradeDisc": "SeaPillars", "icon": ""}
+{"name": "Sunken Totems", "refName": "Sunken Totems", "namespace": "AREA", "tradeDisc": "SunkenTotems", "icon": ""}
+{"name": "Undersea Groves", "refName": "Undersea Groves", "namespace": "AREA", "tradeDisc": "UnderseaGroves", "icon": ""}
+{"name": "Unremarkable Seabed", "refName": "Unremarkable Seabed", "namespace": "AREA", "tradeDisc": "UnremarkableSeabed", "icon": ""}
